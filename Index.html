@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Dingley Portfolio</title>
+    <style>
+        body {
+            
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            background-color: #000000;
+        }
+
+        .mainContent {
+            
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 50px;
+            padding-top: 0px;
+            position: absolute;
+            align-self: center;
+            top: 0%;
+            left: 50%;
+            transform: translate(-50%, 10%);
+            
+            background-color: rgba(1,1,1,0.5);
+            box-shadow: 0 0 10px #ff24ed;
+        }
+        .GameUI {
+            max-width: 1000px;
+            position:absolute;
+            display:flex;
+            left: 50%;
+            transform: translate(-50%, 2100px);
+            
+            background-color: rgba(1,1,1,0.1);
+            box-shadow: 0 0 10px rgba(255, 36, 237,0.5);
+        }
+
+        h1 {
+            padding-top: 0px;
+            color: #ffffff;
+            text-align: justify;
+            font-size: 60px;
+        }
+        h2 {
+            padding-top: 20px;
+            color: #ffffff;
+            text-align: justify;
+            font-size: 36px;
+        }
+        h3 {
+            padding-top: 0px;
+            padding-right: 50px;
+            padding-left: 50px;
+            color: #ffffff;
+            font-size: 20px;
+        }
+
+        p {
+            color: #d4d4d4;
+            text-align: justify;
+            font-size: 12;
+        }
+        .image {
+            width: 200px; /* Set a fixed width for the image */
+            padding: 20px; /* Add some spacing around the image */
+            float: right; /* Center the image horizontally */ /*<iframe frameborder="0" src="https://itch.io/embed-upload/8530496?color=333333" allowfullscreen="" width="640" height="380"><a href="https://giac.itch.io/supergarylowfps">Play Super Gary Low FPS on itch.io</a></iframe>*/
+        }
+
+        .image img {
+            margin: 5px;
+            float: right;
+        }
+        canvas
+        {
+            position: fixed;
+            overflow: hidden;
+            z-index: -1;
+        }
+        .iSWButton
+        {
+            position: fixed;
+            overflow: hidden;
+            transform: translate(10%, 10px);
+            z-index: 1;
+
+            padding: 10px 20px; /* Adjust padding for button size */
+            border: none;
+            background-color: rgba(255, 0, 242, 0.1); /* Button background color */
+            color: #ffffff77; /* Button text color */
+            font-size: 18px; /* Button font size */
+            border-radius: 0; /* Square edges */
+            cursor: pointer;
+            
+        }
+        .ProjectsView
+        {
+            max-width: 1000px;
+            max-height: 500px;
+            height: 225px;
+            padding: 0px;
+            padding-bottom: 0px;
+            display: flex;
+            align-items: flex-start;
+            margin-right: -50px; margin-left: -50px;
+            overflow: hidden;
+        }
+        a:link {
+        color: #ec60ff;
+        background-color: transparent;
+        text-decoration: none;
+        }
+
+        a:visited {
+        color: rgb(204, 0, 143);
+        background-color: transparent;
+        text-decoration: none;
+        }
+
+        a:hover {
+        color: rgb(255, 0, 200);
+        background-color: transparent;
+        text-decoration: underline;
+        }
+
+        a:active {
+        color: rgb(68, 0, 77);
+        background-color: transparent;
+        text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="mainContent" id ="mainContent">
+        <div class="image">
+            <img src="your-image.png" alt="Image Description" width = "200px">
+        </div>
+        <h1>Daniel Dingley</h1>
+        <p id = "examplePara">Welcome to my portfolio. I'm a passionate video game enthusiast, I love playing all sorts, watching the industry develop and I'm always working on a personal project in my spare time. As a result I have built up a wide range of knowledge and skills for developing games that I'd love to put to use and expand upon in bigger team projects.</p>
+        
+        
+
+        <h2>Gameplay Programmer</h2>
+        <p>Though I've dipped my toes in most aspects of game deveopment my specialty lies in programming...</p>
+
+        <h2 style="padding-bottom: 0;">All/Featured Projects</h2>
+        <p style="padding-top: 0;">A collection of finished and unfinished games I've made mostly under the name GIAC</p>
+        
+        <div class="ProjectsView" id = "projectsView">
+        </div>
+
+        <h2>Contact Me</h2>
+        <p>Thanks for reading my portfolio if you have any questions or want to get in touch email me at  <br><br> danieldingley9@gmail.com</p>
+        
+        
+    </div>
+    
+    <canvas id="interactiveBackground"></canvas>
+    <div class="GameUI">
+        <h3 id ="wormLength">Length:10/20000</h3>
+        <h3 id ="highScore">HighScore: 0</h3>
+        <h3 id ="wormRound">Round 00000</h3>
+    </div>
+    <button onClick = "SwitchImmersion()"class="iSWButton" id="immerseSwitch" >Portfolio View (P)</button>
+
+    <script src ="InteractiveBG.js"></script>
+    <script src ="ProjectsView.js"></script>
+    <script src ="Linker.js"></script>
+    
+    
+    
+    </div>
+</body>
+</html>
