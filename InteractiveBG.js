@@ -183,8 +183,40 @@ var GameLoop = function Loop() {
     //requestAnimationFrame(GameLoop);
     return true;
 }
+function SetupEvents(isMobile = false)
+{
+    if (!isMobile)
+    {
+        // Event listener to track mouse movement
+        window.addEventListener("mousemove", (event) => {
+            mouseX = event.clientX / scaling;
+            mouseY = event.clientY / scaling;
+            mp = PixelSnap(mouseX,mouseY)
+            if (mousePoses.length == 0 || mp[0] != mousePoses[0][0] || mp[1] != mousePoses[0][1])
+            {
+                mousePoses.unshift(mp);
+                DrawMouseWorm();
+            }
+        });
+    }
+    else
+    {
+        window.addEventListener("touchmove", (event) => {
+            mouseX = event.clientX / scaling;
+            mouseY = event.clientY / scaling;
+            mp = PixelSnap(mouseX,mouseY)
+            if (mousePoses.length == 0 || mp[0] != mousePoses[0][0] || mp[1] != mousePoses[0][1])
+            {
+                mousePoses.unshift(mp);
+                DrawMouseWorm();
+            }
+        });
+    }
+}
 var GameStart = function Start()
 {
+
+    SetupEvents();
     mWormLength = 12;
     ctx.scale(scaling,scaling);
     canvas.width = window.innerWidth;
@@ -303,17 +335,6 @@ function DrawSquare(x, y, col, multi = 1) {
     ctx.fillRect(x - (pixelSize * 0.5 * multi), y - (pixelSize * 0.5 * multi), pixelSize * multi, pixelSize * multi); // Draw a 50x50 red square centered at the mouse coordinates
 }
 
-// Event listener to track mouse movement
-window.addEventListener("mousemove", (event) => {
-    mouseX = event.clientX / scaling;
-    mouseY = event.clientY / scaling;
-    mp = PixelSnap(mouseX,mouseY)
-    if (mousePoses.length == 0 || mp[0] != mousePoses[0][0] || mp[1] != mousePoses[0][1])
-    {
-        mousePoses.unshift(mp);
-        DrawMouseWorm();
-    }
-});
 function DetectCatch(x, y)
 {
     wormList.forEach((instance, index) => {
